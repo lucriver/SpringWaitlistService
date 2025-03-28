@@ -1,9 +1,10 @@
 package com.lucrivdev.tapioca.service;
 
+import com.lucrivdev.tapioca.exception.DuplicateEmailException;
+import com.lucrivdev.tapioca.exception.InvalidEmailException;
 import com.lucrivdev.tapioca.model.WaitlistEntry;
 import com.lucrivdev.tapioca.repository.WaitlistRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
 
@@ -32,24 +33,24 @@ public class EmailWaitlistServiceTest {
 
         EmailWaitlistService service = new EmailWaitlistService(mockRepo);
 
-        assertThrows(IllegalStateException.class, () -> {
+        assertThrows(DuplicateEmailException.class, () -> {
             service.addEmailToWaitlist("user@example.com");
         });
     }
 
     @Test
-    void shouldThrowIfEmailMissing() {
+    void shouldThrowIfEmailMissingOrNull() {
         WaitlistRepository mockRepo = mock(WaitlistRepository.class);
 
         EmailWaitlistService service = new EmailWaitlistService(mockRepo);
 
         // Empty string
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidEmailException.class, () -> {
             service.addEmailToWaitlist("");
         });
 
         // null argument
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidEmailException.class, () -> {
             service.addEmailToWaitlist(null);
         });
     }
@@ -60,7 +61,7 @@ public class EmailWaitlistServiceTest {
 
         EmailWaitlistService service = new EmailWaitlistService(mocKRepo);
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidEmailException.class, () -> {
             service.addEmailToWaitlist("user");
         });
     }
@@ -73,7 +74,7 @@ public class EmailWaitlistServiceTest {
         String email = local + "@" + domain;
 
         EmailWaitlistService service = new EmailWaitlistService(mockRepo);
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(InvalidEmailException.class, () -> {
             service.addEmailToWaitlist(email);
         });
     }

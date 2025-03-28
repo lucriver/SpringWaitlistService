@@ -1,5 +1,7 @@
 package com.lucrivdev.tapioca.service;
 
+import com.lucrivdev.tapioca.exception.DuplicateEmailException;
+import com.lucrivdev.tapioca.exception.InvalidEmailException;
 import com.lucrivdev.tapioca.model.WaitlistEntry;
 import com.lucrivdev.tapioca.repository.WaitlistRepository;
 import org.springframework.stereotype.Service;
@@ -16,11 +18,11 @@ public class EmailWaitlistService {
 
     public void addEmailToWaitlist(String email) {
         if (!isValidEmail(email)) {
-            throw new IllegalArgumentException("Invalid email");
+            throw new InvalidEmailException("Email is invalid: " + email);
         }
 
         if (this.repository.findByEmail(email).isPresent()) {
-            throw new IllegalStateException("Email already on waitlist");
+            throw new DuplicateEmailException(email);
         }
 
         repository.save(new WaitlistEntry(email));
