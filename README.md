@@ -12,6 +12,7 @@
    2. Write code such that unit tests pass.
    3. Refactor code to optimize it.
 3. Create GitHub Actions CI/CD pipeline for automation with JUnit.
+4. Integration tests
 
 ...to be continued
 
