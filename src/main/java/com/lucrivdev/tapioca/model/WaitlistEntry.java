@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,4 +20,8 @@ public class WaitlistEntry {
 
     @Column(unique = true, nullable = false)
     private String email;
+
+    public WaitlistEntry(String email) {
+        this.email = email;
+    }
 }
