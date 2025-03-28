@@ -1,16 +1,17 @@
-# .github/workflows/test.yml
 name: Run Unit Tests
 
 on:
+  push:
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up JDK 17
@@ -19,5 +20,5 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build and Run Tests
+      - name: Build and run tests
         run: mvn clean test
