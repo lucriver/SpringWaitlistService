@@ -3,15 +3,14 @@ package com.lucrivdev.tapioca.service;
 import com.lucrivdev.tapioca.model.WaitlistEntry;
 import com.lucrivdev.tapioca.repository.WaitlistRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class EmailWaitlistServiceTest {
-
     @Test
     void shouldSaveEmailIfNotExists() {
         WaitlistRepository mockRepo = mock(WaitlistRepository.class);
@@ -78,6 +77,5 @@ public class EmailWaitlistServiceTest {
             service.addEmailToWaitlist(email);
         });
     }
-
 
 }
