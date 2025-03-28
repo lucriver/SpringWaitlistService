@@ -1,6 +1,22 @@
 ## Simple Spring Boot Email Waitlist Microservice ("Tapioca")
 
-### Overview
+### This project was created in the following steps:
+
+1. Creation of a test plan
+   1. Define core functional requirements.
+   2. Define testing scope.
+   3. Define test scenarios (Happy path, bad path, and edge cases).
+   4. Specify tooling/automation tooling.
+2. Red, green, refactor
+   1. Write unit tests for test scenarios.
+   2. Write code such that unit tests pass.
+   3. Refactor code to optimize it.
+3. Create GitHub Actions CI/CD pipeline for automation with JUnit.
+
+...to be continued
+
+
+## Test Plan
 
 #### Background
 
