@@ -15,7 +15,7 @@
    1. Require unit tests to pass for code to be merged to main.
 4. Create DB migration scripts and integration tests.
 5. Add integration tests to pipeline.
-6.
+6. Create simple react UI front-end for future e2e testing.
 
 
 ## Test Plan
