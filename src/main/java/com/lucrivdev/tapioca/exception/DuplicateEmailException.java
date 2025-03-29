@@ -1,6 +1,8 @@
 package com.lucrivdev.tapioca.exception;
 
-public class DuplicateEmailException extends RuntimeException {
+import org.springframework.dao.DataIntegrityViolationException;
+
+public class DuplicateEmailException extends DataIntegrityViolationException {
     public DuplicateEmailException(String email) {
         super("Email already on waitlist: " + email);
     }

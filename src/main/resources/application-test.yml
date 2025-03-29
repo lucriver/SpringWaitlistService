@@ -13,3 +13,4 @@ spring:
     locations: classpath:db/migration
   sql:
     init-mode: always     # Ensures SQL scripts run at startup
+

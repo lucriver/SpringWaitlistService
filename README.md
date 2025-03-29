@@ -11,10 +11,11 @@
    1. Write unit tests for test scenarios.
    2. Write code such that unit tests pass.
    3. Refactor code to optimize it.
-3. Create GitHub Actions CI/CD pipeline for automation with JUnit.
-4. Integration tests
-
-...to be continued
+3. Create GitHub Actions CI/CD pipeline for automation.
+   1. Require unit tests to pass for code to be merged to main.
+4. Create DB migration scripts and integration tests.
+5. Add integration tests to pipeline.
+6.
 
 
 ## Test Plan
