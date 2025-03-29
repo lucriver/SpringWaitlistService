@@ -20,5 +20,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Navigate to backend directory
+        run: cd backend
+
       - name: Build and run tests
         run: mvn clean test
+        working-directory: ./backend
